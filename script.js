@@ -16,18 +16,18 @@ const duracaoDescansoLongo = 900;
 
 focoBt.addEventListener('click', () => {
     alterarContexto('foco')
-    focoBt.classList.add(active)
+    focoBt.classList.add('active')
 })
 
 curtoBt.addEventListener('click', () => {
     alterarContexto('descanso-curto')
-    curtoBt.classList.add(active)
+    curtoBt.classList.add('active')
 })
     
 
 longoBt.addEventListener('click', () => {
     alterarContexto('descanso-longo')
-    longoBt.classList.add(active)
+    longoBt.classList.add('active')
 })
 
 function alterarContexto(contexto) {
