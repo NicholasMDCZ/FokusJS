@@ -9,9 +9,9 @@ const botoes = document.querySelectorAll('.app__card-button')
 const startPauseBt = document.querySelector('#start-pause')
 const musicaFocoInput = document.querySelector('#alternar-musica')
 const musica = new Audio('/sons/luna-rise-part-one.mp3')
-const startSound = new Audio('/sons/play.wav')
-const pauseSound = new Audio('/sons/pause.mp3')
-const beep = new Audio('/sons/beep.mp3')
+const audioPlay = new Audio('/sons/play.wav');
+const audioPausa = new Audio('/sons/pause.mp3');
+const audioTempoFinalizado = new Audio('./sons/beep.mp3')
 musica.loop = true
 
 let tempoDecorridoEmSegundos = 5
@@ -69,13 +69,15 @@ function alterarContexto(contexto) {
 }
 
 const contagemRegressiva = () => {
-    if(tempoDecorridoEmSegundos <= 0){
+    if(tempoDecorridoEmSegundos <= 0) {
+        audioTempoFinalizado.play()
+        alert('Tempo finalizado')
         zerar()
-        alert('Tempo finalizado!')
         return
     }
     tempoDecorridoEmSegundos -= 1
-    console.log('Temporizador: ' + tempoDecorridoEmSegundos)
+    console.log('Tempo: ' + tempoDecorridoEmSegundos)
+    console.log('Id: ' + intervaloId)
 }
 
 startPauseBt.addEventListener('click', iniciarOuPausar)
@@ -87,9 +89,11 @@ startPauseBt.addEventListener('click', iniciarOuPausar)
 
 function iniciarOuPausar() {
     if(intervaloId){
+        audioPausa.play();
         zerar()
         return
     }
+    audioPlay.play();
     intervaloId = setInterval(contagemRegressiva, 1000)
 }
 
