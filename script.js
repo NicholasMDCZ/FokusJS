@@ -2,23 +2,25 @@ const html = document.querySelector('html')
 const focoBt = document.querySelector('.app__card-button--foco')
 const curtoBt = document.querySelector('.app__card-button--curto')
 const longoBt = document.querySelector('.app__card-button--longo')
-const botaoIniciar = document.querySelector('.app__card-primary-button');
 const banner = document.querySelector('.app__image')
 const titulo = document.querySelector('.app__title')
 const botoes = document.querySelectorAll('.app__card-button')
 const startPauseBt = document.querySelector('#start-pause')
 const musicaFocoInput = document.querySelector('#alternar-musica')
 const iniciarOuPausarBt = document.querySelector('#start-pause span')
+const iniciarOuPausarBtIcone = document.querySelector(".app__card-primary-button-icon")
 const tempoNaTela = document.querySelector('#timer')
 
 const musica = new Audio('/sons/luna-rise-part-one.mp3')
 const audioPlay = new Audio('/sons/play.wav');
 const audioPausa = new Audio('/sons/pause.mp3');
 const audioTempoFinalizado = new Audio('./sons/beep.mp3')
-musica.loop = true
 
 let tempoDecorridoEmSegundos = 1500
 let intervaloId = null
+
+musica.loop = true
+mostrarTempo()
 
 musicaFocoInput.addEventListener('change', () => {
     if(musica.paused) {
@@ -114,4 +116,3 @@ function mostrarTempo() {
     tempoNaTela.innerHTML = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
 }
 
-mostrarTempo()
