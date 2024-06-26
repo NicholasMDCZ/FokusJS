@@ -17,7 +17,7 @@ const audioPausa = new Audio('/sons/pause.mp3');
 const audioTempoFinalizado = new Audio('./sons/beep.mp3')
 musica.loop = true
 
-let tempoDecorridoEmSegundos = 5
+let tempoDecorridoEmSegundos = 1500
 let intervaloId = null
 
 musicaFocoInput.addEventListener('change', () => {
@@ -72,17 +72,17 @@ function alterarContexto(contexto) {
 }
 
 const contagemRegressiva = () => {
-    if(tempoDecorridoEmSegundos <= 0) {
-        audioTempoFinalizado.play()
-        alert('Tempo finalizado')
-        zerar()
-        return
+    if (tempoDecorridoEmSegundos <= 0) {
+        audioTempoFinalizado.play();
+        alert('Tempo finalizado');
+        zerar();
+        return;
     }
-    tempoDecorridoEmSegundos -= 1
-    mostrarTempo()
-}
+    tempoDecorridoEmSegundos -= 1;
+    mostrarTempo();
+};
 
-startPauseBt.addEventListener('click', iniciarOuPausar)
+startPauseBt.addEventListener('click', iniciarOuPausar);
     if(startSound.paused) {
         startSound.pause()
     } else {
@@ -93,6 +93,7 @@ function iniciarOuPausar() {
     if(intervaloId){
         audioPausa.play();
         zerar()
+        iniciarOuPausarBt.textContent = "Começar";
         return
     }
     audioPlay.play();
@@ -108,5 +109,9 @@ function zerar() {
 
 function mostrarTempo() {
     const tempo = tempoDecorridoEmSegundos
-    tempoNaTela.innerHTML = `${tempo}`
+    const minutos = Math.floor(tempo / 60);
+    const segundos = tempo % 60;
+    tempoNaTela.innerHTML = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
 }
+
+mostrarTempo()
