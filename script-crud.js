@@ -4,6 +4,13 @@ const textArea = document.querySelector('.app__form-textarea')
 
 const tarefas = []
 
+function criarElementoTarefa(tarefa) {
+    const li = document.createElement('li')
+    li.classList.add('app__section-task-list-item')
+
+    const svg = 
+}
+
 btnAdicionarTarefa.addEventListener('click', ()=> {
     formAdicionarTarefa.classList.toggle('hidden')
 })
