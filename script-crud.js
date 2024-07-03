@@ -17,6 +17,19 @@ function criarElementoTarefa(tarefa) {
         </svg>
     </svg>
     `
+
+    const paragrafo = document.createElement('p')
+    paragrafo.textContent = tarefa.descricao
+
+    const botao = document.createElement('button')
+    const imagemBotao = document.createElement('img')
+
+    imagemBotao.setAttribute('src', '/imagens/edit.png')
+    botao.append(imagemBotao)
+
+    li.append(svg)
+    li.append(paragrafo)
+    li.append(botao)
 }
 
 btnAdicionarTarefa.addEventListener('click', ()=> {
