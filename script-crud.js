@@ -48,4 +48,5 @@ formAdicionarTarefa.addEventListener('submit', (evento) =>{
 
 tarefas.forEach(tarefa => {
     const elementoTarefa = criarElementoTarefa(tarefa)
+    ulTarefas.append(elementoTarefa)
 })
