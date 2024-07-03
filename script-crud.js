@@ -2,7 +2,7 @@ const btnAdicionarTarefa = document.querySelector('.app__button--add-task')
 const formAdicionarTarefa = document.querySelector('.app__form-add-task')
 const textArea = document.querySelector('.app__form-textarea')
 
-const tarefas = JSON.parse(localStorage.getItem('tarefas'))
+const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 
 function criarElementoTarefa(tarefa) {
     const li = document.createElement('li')
