@@ -30,6 +30,7 @@ function criarElementoTarefa(tarefa) {
     botao.onclick = () => {
         const novaDescricao = prompt("Qual é o novo nome da tarefa")
         paragrafo.textContent = novaDescricao
+        atualizarTarefas()
     }
 
     const imagemBotao = document.createElement('img')
@@ -55,7 +56,7 @@ formAdicionarTarefa.addEventListener('submit', (evento) =>{
     tarefas.push(tarefa)
     const elementoTarefa = criarElementoTarefa(tarefa)
     ulTarefas.append(elementoTarefa)
-    atualizarTarefas
+    atualizarTarefas()
     textArea.value = ''
     formAdicionarTarefa.classList.add('hidden')
 })
