@@ -47,6 +47,7 @@ function criarElementoTarefa(tarefa) {
 
     li.onclick = () => {
         paragrafoDescricaoTarefa.textContent = tarefa.descricao
+        li.classList.add('app__section-task-list-item-active')
     }
 
     return li
