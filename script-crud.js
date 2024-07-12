@@ -47,6 +47,10 @@ function criarElementoTarefa(tarefa) {
 
     li.onclick = () => {
         paragrafoDescricaoTarefa.textContent = tarefa.descricao
+        document.querySelectorAll('.app__section-task-list-item-active')
+            .forEach(elemento => {
+                elemento.remove('app__section-task-list-item-active')
+            })
         li.classList.add('app__section-task-list-item-active')
     }
 
