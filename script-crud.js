@@ -47,16 +47,18 @@ function criarElementoTarefa(tarefa) {
     li.append(botao)
 
     li.onclick = () => {
-        if(tarefaSelecionada == tarefa) {
-            paragrafoDescricaoTarefa.textContent = ''
-            tarefaSelecionada = null
-        }
-        tarefaSelecionada = tarefa
-        paragrafoDescricaoTarefa.textContent = tarefa.descricao
         document.querySelectorAll('.app__section-task-list-item-active')
             .forEach(elemento => {
                 elemento.classList.remove('app__section-task-list-item-active')
             })
+        if(tarefaSelecionada == tarefa) {
+            paragrafoDescricaoTarefa.textContent = ''
+            tarefaSelecionada = null
+            return
+        }
+        tarefaSelecionada = tarefa
+        paragrafoDescricaoTarefa.textContent = tarefa.descricao
+        
         li.classList.add('app__section-task-list-item-active')
     }
 
