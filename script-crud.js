@@ -5,6 +5,7 @@ const ulTarefas = document.querySelector('.app__section-task-list')
 const paragrafoDescricaoTarefa = document.querySelector('.app__section-active-task-description')
 
 const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
+let tarefaSelecionada = null
 let liTarefaSelecionada = null
 
 
@@ -53,7 +54,7 @@ function criarElementoTarefa(tarefa) {
             .forEach(elemento => {
                 elemento.classList.remove('app__section-task-list-item-active')
             })
-        if(tarefaSelecionada == tarefa) {
+        if (tarefaSelecionada == tarefa) {
             paragrafoDescricaoTarefa.textContent = ''
             tarefaSelecionada = null
             liTarefaSelecionada = null
@@ -62,12 +63,12 @@ function criarElementoTarefa(tarefa) {
         tarefaSelecionada = tarefa
         liTarefaSelecionada = li
         paragrafoDescricaoTarefa.textContent = tarefa.descricao
-        
+
         li.classList.add('app__section-task-list-item-active')
     }
 
     return li
-}
+}   
 
 btnAdicionarTarefa.addEventListener('click', ()=> {
     formAdicionarTarefa.classList.toggle('hidden')
