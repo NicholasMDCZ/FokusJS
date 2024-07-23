@@ -83,7 +83,8 @@ const contagemRegressiva = () => {
         alert('Tempo finalizado');
         const focoAtivo = html.getAttribute('data-contexto')
         if (focoAtivo) {
-            const evento = new CustomEvent
+            const evento = new CustomEvent('FocoFinalizado')
+            document.dispatchEvent(evento)
         }
         zerar();
         return;
