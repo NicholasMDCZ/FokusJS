@@ -81,7 +81,10 @@ const contagemRegressiva = () => {
     if (tempoDecorridoEmSegundos <= 0) {
         audioTempoFinalizado.play();
         alert('Tempo finalizado');
-        
+        const focoAtivo = html.getAttribute('data-contexto')
+        if (focoAtivo) {
+            const evento = new CustomEvent
+        }
         zerar();
         return;
     }
